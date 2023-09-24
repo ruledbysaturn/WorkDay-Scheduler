@@ -1,6 +1,16 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+const localeSettings = {};
+dayjs.locale(localeSettings);
+
+function upTime() {
+  const dateE = $('#date');
+  const timeE = $('#time');
+  const currDate = dayjs().format ('dddd, MMMM D, YYYY');
+  const currTime = dayjs().format('hh:mm:ss A');
+  dateE.text(currDate);
+  timeE.text(currTime);
+}
+setInterval(upTime, 1000);
+
 $(function () {
   const currHour= dayjs().format('H');
 
