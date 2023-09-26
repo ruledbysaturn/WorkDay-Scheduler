@@ -32,14 +32,21 @@ function hourColors() {
       
     });
   }
-  function scheduleEntry() {
-    $('.saveBtn').on('click'), function () {
-      console.log(this);
-      const hour = $(this).parent().attr('id');
-      const text = $(this).siblings('.description').val();
-      localStorage.setItem(hour, text);    }
+  //when save button is clicked, saves to local storage
 
-  };
+  function scheduleEntry() {
+    $('.saveBtn').on('click', function() {
+      const key = $(this).parent().attr('id');
+      const value = $(this).siblings('.description').val();
+      localStorage.setItem(key, value);
+    });
+  }
+  //keeps schedule entries on the time blocks upon refreshing page (only if saved to local storage)
+  $('.time-block').each(function(){
+    const key = $(this).attr('id');
+    const value = localStorage.getItem(key);
+    $(this).children('.description').val(value);
+  })
   hourColors();
   scheduleEntry();
 });
