@@ -6,6 +6,7 @@ Starter code provided for a workday scheduler. Objective was to get the schedule
 
 
 ## Usage
+<a href="https://ruledbysaturn.github.io/WorkDay-Scheduler/">Deployed Page</a>
 
 User will be presented with schedule app featuring times from 9am to 5pm. Past times will appear in gray, present time will be red, future time slots will be green.
 
